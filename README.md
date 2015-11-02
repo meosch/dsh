@@ -1,5 +1,5 @@
 # dsh
-dsh borrowed from the drude project with a few changes
+dsh borrowed from the [drude project](https://github.com/blinkreaction/drude) with a few changes. They call it the Drude Shell.
 
 ### dsh bash
 
