@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DSH_VERSION=1.7.0.1
+DSH_VERSION=1.7.0.1 
 
 help ()
 {
@@ -1167,8 +1167,8 @@ _set_cli_uid ()
 			docker exec -it -u root $(docker-compose ps -q cli) usermod -u $host_uid www-data
 			echo-green "Reseting permissions on /var/www..."
 			docker exec -it -u root $(docker-compose ps -q cli) chown -R $host_uid:www-data /var/www
-			echo-green "Restarting php daemon..."
-			docker exec -it -u root $(docker-compose ps -q cli) supervisorctl restart php5-fpm
+#			echo-green "Restarting php daemon..."
+#			docker exec -it -u root $(docker-compose ps -q cli) supervisorctl restart php5-fpm
 		else
 			echo-green "Container and host uids already match ($container_uid)."
 		fi
