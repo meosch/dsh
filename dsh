@@ -1164,9 +1164,9 @@ _set_cli_uid ()
 
 		if [[ $container_uid != $host_uid ]]; then
 			echo-green "Changing user uid in cli from $container_uid to $host_uid..."
-			docker exec -it -u root $(docker-compose ps -q cli) usermod -u $host_uid www-data
+			docker exec -it -u root $(docker-compose ps -q cli) usermod -u $host_uid docker
 			echo-green "Reseting permissions on /var/www..."
-			docker exec -it -u root $(docker-compose ps -q cli) chown -R $host_uid:www-data /var/www
+			docker exec -it -u root $(docker-compose ps -q cli) chown -R docker:users /var/www
 #			echo-green "Restarting php daemon..."
 #			docker exec -it -u root $(docker-compose ps -q cli) supervisorctl restart php5-fpm
 		else
