@@ -1154,6 +1154,8 @@ logs ()
 # Useful to match the host uid with the uid in the cli container and avoid file permission issues this way.
 _set_cli_uid ()
 {
+# Check if the cli container is running.
+if [ $(docker-compose ps -q cli 2> /dev/null) ]; then
 	if [[ $DRUDE_SET_UID == "" ]] ; then
 		DRUDE_SET_UID=$(id -u)
 	fi
@@ -1175,6 +1177,7 @@ _set_cli_uid ()
 	else
 		echo-yellow "Can not match uid in cli with host's uid (uid=0). Using default (uid=1000)."
 	fi
+fi
 }
 
 # Command bindings
